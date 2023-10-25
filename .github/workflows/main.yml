@@ -1,0 +1,15 @@
+name: Pull_Requests
+
+on:
+    pull_request:
+        branches: [master, main]
+
+jobs:
+    build: 
+        runs-on: windows-latest
+
+        steps:
+          -  name: Checkout code 
+             uses: actions/checkout@v3
+          -  name: Build code
+             run: dotnet build
