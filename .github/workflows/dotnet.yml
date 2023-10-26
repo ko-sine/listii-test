@@ -27,7 +27,7 @@ jobs:
     env:
       organization: 'klevaorg'
       project: 'TraceableTribe'
-      work-item-id: '${{ github.event }}'
+      work-item-id: '7'
       new-status: 'Doing'
       closedstate: 'false'
 
