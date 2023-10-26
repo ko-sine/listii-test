@@ -28,7 +28,7 @@ jobs:
       organization: $AZURE_DEVOPS_ORGANIZATION
       project: '$AZURE_DEVOPS_PROJECT'
       work-item-id: ${{ github.event.issue.number }}
-      new-status: ${{ secrets.AZURE_DEVOPS_WORK_ITEM_NEW_STATUS }}
+      new-status: ${{ env.AZURE_DEVOPS_WORK_ITEM_NEW_STATUS }}
       closedstate: 'false'
 
     steps:
