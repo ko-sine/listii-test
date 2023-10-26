@@ -23,14 +23,14 @@ jobs:
       run: dotnet build --no-restore
   update-work-item-status:
     runs-on: ubuntu-latest
-    
+
+    env:
+      organization: ${{ secrets.AZURE_DEVOPS_ORGANIZATION }}
+      project: ${{ secrets.AZURE_DEVOPS_PROJECT }}
+      work-item-id: ${{ github.event.issue.number }}
+      new-status: ${{ secrets.AZURE_DEVOPS_WORK_ITEM_NEW_STATUS }}
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
     - name: Update work item status
-      uses: CanarysAutomations/pr-update-work-item-state@v1.4
-      with:
-          organization: ${{ secrets.AZURE_DEVOPS_ORGANIZATION }}
-          project: ${{ secrets.AZURE_DEVOPS_PROJECT }}
-          work-item-id: ${{ github.event.issue.number }}
-          new-status: ${{ secrets.AZURE_DEVOPS_WORK_ITEM_NEW_STATUS }}
