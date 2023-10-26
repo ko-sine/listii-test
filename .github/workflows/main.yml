@@ -11,5 +11,8 @@ jobs:
         steps:
           -  name: Checkout code 
              uses: actions/checkout@v3
+          -  name: Azure Boards, check for AB#
+             uses: danhellem/github-actions-pr-is-linked-to-work-item@v1.2
           -  name: Build code
              run: dotnet build
+            
