@@ -4,7 +4,7 @@
 name: .NET
 
 on:
-  push:
+  pull_request:
     branches: [ "main", "master" ]
 
 jobs:
@@ -28,7 +28,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
     - name: Update work item status
-      uses: microsoft/azure-boards-github-action@v1
+      uses: CanarysAutomations/pr-update-work-item-state@v1.4
       with:
           organization: ${{ secrets.AZURE_DEVOPS_ORGANIZATION }}
           project: ${{ secrets.AZURE_DEVOPS_PROJECT }}
